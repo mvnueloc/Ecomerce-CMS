@@ -8,7 +8,6 @@ export const ModalProvider = () => {
 
   useEffect(() => {
     setIsMounted(true);
-    console.log("ModalProvider mounted");
   }, []);
 
   if (!isMounted) {

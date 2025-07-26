@@ -4,7 +4,6 @@ import { PrismaClient } from "@prisma/client";
 
 export async function POST(req: Request) {
   try {
-    console.log(req);
     const { userId } = await auth();
 
     const body = await req.json();

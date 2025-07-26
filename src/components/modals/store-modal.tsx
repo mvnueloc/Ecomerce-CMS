@@ -17,6 +17,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import axios from "axios";
+import { toast } from "sonner";
 
 const formSchema = z.object({
   name: z.string().min(1),
@@ -39,12 +40,13 @@ export const StoreModal = () => {
     try {
       setLoading(true);
       const response = await axios.post("/api/stores", data);
-      console.log(response.data);
+      window.location.assign(`/${response.data.id}`);
     } catch (error) {
+      console.error(error);
+      toast.error("Store has not been created");
     } finally {
       setLoading(false);
     }
-    console.log(data);
   };
 
   return (
